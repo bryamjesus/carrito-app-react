@@ -1,4 +1,4 @@
-# Carrito de compras
+# CARRITO DE COMPRAS
 
 ## Levantar proyecto
 ```bash

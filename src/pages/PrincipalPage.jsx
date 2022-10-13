@@ -99,7 +99,7 @@ const PrincipalPage = () => {
           <h4>Total: S/ {total.toFixed(2)}</h4>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
