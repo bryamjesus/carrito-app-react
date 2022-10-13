@@ -16,6 +16,14 @@ const PrincipalPage = () => {
   }, [])
 
   useEffect(() => {
+    let subtotal = 0;
+    for (const item of canasta) {
+      subtotal += (item.precio * item.cantidad);
+    }
+    setTotal(subtotal);
+  }, [canasta]);
+
+  useEffect(() => {
     const productos = listar()
     if (productos) {
       setLoading(false)
@@ -31,6 +39,11 @@ const PrincipalPage = () => {
     setCanasta(nCanasta)
     console.log(canasta)
   }
+
+  const handleRemoveProduct = (id) => {
+    let nCanasta = canasta.filter(elem => elem.id !== id);
+    setCanasta(nCanasta);
+  };
 
   return (
     <div className="container">
@@ -78,13 +91,14 @@ const PrincipalPage = () => {
                 <li className="list-group-item" key={elem.id}>
                   {elem.nombre}<br />
                   {elem.precio} x {elem.cantidad} = {(elem.precio * elem.cantidad)}
+                  <button onClick={() => handleRemoveProduct(elem.id)} className="btn btn-danger"><i className="bi bi-trash-fill"></i></button>
                 </li>
               ))
             }
           </ul>
+          <h4>Total: S/ {total.toFixed(2)}</h4>
         </div>
       </div>
-
     </div >
   );
 }
