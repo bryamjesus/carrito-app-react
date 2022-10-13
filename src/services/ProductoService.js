@@ -1,5 +1,4 @@
 import productos from "../data/productos";
-import productos from "../data/productos";
 
 export const listar = () => productos
 
