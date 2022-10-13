@@ -1,1 +1,0 @@
-# carrito-app-react
